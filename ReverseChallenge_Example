@@ -1,0 +1,46 @@
+//Purpose: Reverse words
+//Signature: (String) -> String
+//Examples:
+//reverseWord("Hey") -> yeH
+//reverseWord("Word") -> droW
+function reverseWord(word) {
+  var iter = word.length - 1;
+  var drow = "";
+
+  while(iter >= 0) {
+    drow += word.charAt(iter--);
+  }
+
+  return drow;
+}
+
+
+
+//Purpose: Taking a string of words, but if the a word is greater than or equal
+// to 5, reverse the word
+//Signature: (String) -> String
+//Examples:
+//reverse("Hi there neighbor") -> "Hi ereht robhgien"
+//reverse("You shall not pass Balrog") -> "You llahs not pass gorlaB"
+function reverse(str) {
+  var index = 0;
+  var newString = "";
+  var word = "";
+  while (index <= str.length) {
+    if (str.charAt(index) != " " && str.charAt(index) != "") {
+      word += str.charAt(index);
+    }
+    else {
+      if (word.length >=5) {
+        word = reverseWord(word);
+      }
+      newString += word;
+      if (index < str.length) {
+        newString += " ";
+      }
+      word = "";
+    }
+    index++;
+  }
+  return newString;
+}

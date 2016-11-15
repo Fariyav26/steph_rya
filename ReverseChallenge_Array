@@ -1,0 +1,20 @@
+//Purpose: Takes a string and reverses all words that are 5+ letters
+//Signature: (string) --> string
+//Examples:
+//          ("Hi there neighbor") --> "Hi ereht robhgien"
+//          ("Welcome home") --> "emoclew home"
+//          ("How are you today") --> "How are you yadot"
+
+function stringReverse(str) {
+  var arrayOfWords = str.split(" ");
+  finalSentence = [];
+  for (i = 0; i < arrayOfWords.length; i++) {
+    if (arrayOfWords[i].length >= 5) {
+      var reversedWord = arrayOfWords[i].split("").reverse().join("");
+    } else {
+     var reversedWord = arrayOfWords[i];
+    }
+     finalSentence.push(reversedWord);
+    }
+  console.log(finalSentence.join(" "));
+}

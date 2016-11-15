@@ -1,0 +1,55 @@
+//Purpose: Takes a string and reverses all words that are 5+ letters
+//Signature: (string) --> string
+//Examples:
+//          ("Hi there neighbor") --> "Hi ereht robhgien"
+//          ("Welcome home") --> "emoclew home"
+//          ("How are you today") --> "How are you yadot"
+
+
+function reverseWord(str) {
+//Identifies the last index via the length
+  var lastIndex = str.length - 1;
+  var wordBackwards = "";
+
+//While loop that adds characters from the string starting at the last index to a new word
+  while (lastIndex >= 0) {
+    wordBackwards += str.charAt(lastIndex);
+    //Decrements index since we're starting at the last index
+    lastIndex--;
+  }
+  return wordBackwards;
+}
+
+function reverseChallenge(string) {
+  var blankWord = "";
+  var blankSentence = "";
+  var index = 0;
+
+//While loop runs until the index is equal to the lenght of the string
+  while (index <= string.length) {
+    //If the character at the given index (which increments below) is not a blank or space, add it to our blank string (blankWord)
+    if (string.charAt(index) != " " && string.charAt(index) != "") {
+      blankWord += string.charAt(index);
+    }
+    //If the character is a space or blank, it enters else with the full blankWord returned from above then checks if the length of the word is greater than or equal to 5
+    else {
+      if (blankWord.length >= 5) {
+        //If the length is at least fix it runs the reverseWord function (above)
+        blankWord = reverseWord(blankWord);
+      }
+      //The new word (whether reversed or not) is added to a blank string (blankSentence)
+      blankSentence += blankWord;
+
+      //This addes spaces between each blankWord, unless the index is the end of the sentense
+      if (index < string.length) {
+        blankSentence += " ";
+      }
+      //Clears the blankWord after each loop so that it can reverse the next word
+      blankWord = "";
+    }
+    //Increments for each while
+    index++;
+  }
+  //returns the blankSentence built from blankWords
+  console.log(blankSentence);
+}

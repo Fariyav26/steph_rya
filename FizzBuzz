@@ -1,0 +1,26 @@
+//Return "Fizz" for multiples of 3, "Buzz" for multiples of 5, "FizzBuzz" for multiples of 3 and 5, and the number for the rest
+//Signature ()-->String
+//Examples: 6 -->"Fizz"
+//			10 -->"Buzz"
+//			15 -->"FizzBuzz"
+
+function fizzBuzz() {
+	var int = 0;
+	while (int <= 100) {
+		if (int%3 === 0 && int%5 === 0) {
+			console.log("FizzBuzz");
+		}
+		else if (int%3 === 0) {
+			console.log("Fizz");
+		}
+		else if (int%5 === 0) {
+			console.log("Buzz");
+		}
+		else {
+			console.log(int);
+		}
+		int++;
+	}
+}
+
+fizzBuzz();
